@@ -1,0 +1,9 @@
+GET http://localhost:4004/odata/v4/student/Students
+
+###
+POST http://localhost:4004/odata/v4/student/Students
+Content-Type: application/json
+
+{
+    "Student_id":"S005"
+}
