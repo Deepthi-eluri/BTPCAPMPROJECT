@@ -15,17 +15,36 @@
                     text="Enter Student ID :"
                     class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiMediumMarginBegin"
                 />
-                <Input id="studentInput" class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiTinyMarginBegin" value="{studentModel>/studentInput}"/>
+                <Input
+                    id="studentInput"
+                    class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiTinyMarginBegin"
+                    value="{studentModel>/studentInput}"
+                />
             </HBox>
-            <Button text="Get Student Details" press="getStudentData" class="sapUiMediumMarginTop sapUiTinyMarginBegin"/>
+            <Button
+                text="Get Student Details"
+                press="getStudentData"
+                class="sapUiMediumMarginTop sapUiTinyMarginBegin"
+            />
             <HBox>
                 <Label
                     id="student"
                     text="Student Details :"
-                    class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiMediumMarginBegin" 
+                    class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiMediumMarginBegin"
                 />
-                <Input id="studentOutput" class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiTinyMarginBegin"  editable="false" value="{studentModel>/studentOutput}"/>
+                <Input
+                    id="studentOutput"
+                    class="sapUiMediumMarginEnd sapUiMediumMarginTop sapUiTinyMarginBegin"
+                    editable="false"
+                    value="{studentModel>/studentOutput}"
+                />
             </HBox>
+            <Button
+                id="Navigate"
+                text="Go to student page"
+                press="onNavigatetoStudentPage"
+                class="sapUiMediumMarginTop sapUiTinyMarginBegin"
+            />
         </content>
     </Page>
 </mvc:View>

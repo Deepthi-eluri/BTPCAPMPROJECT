@@ -27,6 +27,11 @@ function (Controller) {
                     console.log(error);
                 }
             });
-        }
+        },
+        onNavigatetoStudentPage: function()
+            {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("RouteStudentInfo",true);
+            }
     });
 });
