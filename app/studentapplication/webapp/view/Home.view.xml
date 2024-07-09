@@ -45,6 +45,12 @@
                 press="onNavigatetoStudentPage"
                 class="sapUiMediumMarginTop sapUiTinyMarginBegin"
             />
+            <Button
+                id="navigeteToStudentInformationPageSmartControls"
+                text="Go to Student Page with Smart Controls"
+                press="onNavigateToStudentPageSmartControls"
+                class="sapUiMediumMarginBegin sapUiMediumMarginTop"
+            />
         </content>
     </Page>
 </mvc:View>

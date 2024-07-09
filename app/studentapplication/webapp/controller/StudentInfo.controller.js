@@ -48,45 +48,31 @@ sap.ui.define([
                     }
                 })
             },
-            CreateStudent: function () {
+            CreateStudent: async function () {
                 var oModel = this.getView().getModel("studentModel");
                 var studentId = oModel.getProperty("/newStudentId");
                 var studentFee = oModel.getProperty("/newStudentfees");
+                let feeurl = "/odata/v4/student/StudentFees"
                 var feePayload = {
                     "Student_id": studentId,
                     "fee_paid": studentFee
                 }
-                let feeurl = "/odata/v4/student/StudentFees"
-                $.ajax({
-                    url: feeurl,
-                    contentType: "application/json",
-                    type: "POST",
-                    data: JSON.stringify(feePayload),
-                    dataType: "json",
-                    success: function (oResult) {
-                        console.log("Created successfully");
-                    },
-                    error: function (oError) {
-                        console.log("Please pay the fees");
+                try{
+                    let studentFeesCallStatus = await this.apiCall(feeurl,feePayload)
+                    console.log(studentFeesCallStatus);
                     }
-                })
+                    catch(error){
+                        console.log(error);
+                    }
+                
                 let url = "/odata/v4/student/Students"
                 var payload = {
                     "Student_id": studentId,
                 } 
-                $.ajax({
-                    url: url,
-                    contentType: "application/json",
-                    type: "POST",
-                    data: JSON.stringify(payload),
-                    dataType: "json",
-                    success: function (oResult) {
-                        console.log("Created successfully");
-                    },
-                    error: function (oError) {
-                        console.log("Please pay the fees");
-                    }
-                })
+
+                let studentDataStatus= await this.apiCall2(url,payload)
+                console.log("Student Created")
+                
             },
             DeleteStudent: function(){
                 var oModel = this.getView().getModel("studentModel");
@@ -108,6 +94,46 @@ sap.ui.define([
                     error: function (oError) {
                         console.log(oError);
                     }
+                })
+            },
+            apiCall : function(feeurl,feePayload){
+
+                return new Promise((resolve,reject)=>{
+                    $.ajax({
+                        url: feeurl,
+                        contentType: "application/json",
+                        type: "POST",
+                        data: JSON.stringify(feePayload),
+                        dataType: "json",
+                        success: function (oResult) {
+                            console.log("Created successfully");
+                            resolve("Succesfully created fees data")
+                        },
+                        error: function (oError) {
+                            console.log("Please pay the fees");
+                            reject("Error while creating data")
+                        }
+                    })
+
+                })
+            },
+            apiCall2: function(url,payload){
+                return new Promise((resolve,reject)=>{
+                    $.ajax({
+                        url: url,
+                        contentType: "application/json",
+                        type: "POST",
+                        data: JSON.stringify(payload),
+                        dataType: "json",
+                        success: function (oResult) {
+                            console.log("Created successfully");
+                            resolve("Successfully created")
+                        },
+                        error: function (oError) {
+                            console.log("Please pay the fees");
+                            reject("Error whie creating")
+                        }
+                    })
                 })
             }
 

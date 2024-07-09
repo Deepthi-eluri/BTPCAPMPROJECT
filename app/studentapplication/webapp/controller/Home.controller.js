@@ -32,6 +32,10 @@ function (Controller) {
             {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteStudentInfo",true);
+            },
+            onNavigateToStudentPageSmartControls: function(){
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("RouteStudentInfoDisplaySmart",true); 
             }
     });
 });

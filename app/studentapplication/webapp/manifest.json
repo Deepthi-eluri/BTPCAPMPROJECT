@@ -17,11 +17,11 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/student/",
+        "uri": "/v2/odata/v4/student",
         "type": "OData",
         "settings": {
           "annotations": [],
-          "odataVersion": "4.0"
+          "odataVersion": "2.0"
         }
       }
     },
@@ -122,6 +122,13 @@
           "target": [
             "TargetStudentInfo"
           ]
+        },
+        {
+          "name": "RouteStudentInfoDisplaySmart",
+          "pattern": "StudentinfoSmart",
+          "target": [
+            "TargetStudentDisplaySmart"
+          ]
         }
       ],
       "targets": {
@@ -138,6 +145,13 @@
           "clearControlAggregation": false,
           "viewId": "StudentInfo",
           "viewName": "StudentInfo"
+        },
+        "TargetStudentDisplaySmart": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SmartControls",
+          "viewName": "SmartControls"
         }
       }
     },

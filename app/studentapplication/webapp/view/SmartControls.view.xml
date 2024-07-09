@@ -1,0 +1,20 @@
+<mvc:View
+    controllerName="com.studentapp.studentapplication.controller.SmartControls"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+      <smartfilterbar:SmartFilterBar id="smartFilterBar" entitySet="Students"  enableBasicSearch="true"></smartfilterbar:SmartFilterBar>
+
+      <smarttable:SmartTable id="smartTable" entitySet="Students" smartFilterId="smartFilterBar" enableAutoBinding="true"></smarttable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
