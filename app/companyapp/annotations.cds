@@ -1,0 +1,1 @@
+using companyService as service from '../../srv/company-service';
